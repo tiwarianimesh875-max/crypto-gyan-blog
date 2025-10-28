@@ -731,11 +731,10 @@
       return text;
     }
     // Latest News widget
-  async function fetchCMCNews() {
+async function fetchCMCNews() {
   const newsList = document.getElementById('cmc-news-list');
   newsList.innerHTML = '<li>Loading the latest crypto news...</li>';
   try {
-    // CoinGecko News fallback, crypto news aggregator style
     const res = await fetch("https://min-api.cryptocompare.com/data/v2/news/?lang=EN");
     const data = await res.json();
     if (data.Data && data.Data.length > 0) {
@@ -751,7 +750,6 @@
       throw new Error('No news data');
     }
   } catch (e) {
-    // Fallback Headlines: CMC news style (edit/update these headlines for freshness every week if needed)
     newsList.innerHTML = `
       <li><strong>Bitcoin hits $111K milestone - Market rallies</strong><br/><a href="https://coinmarketcap.com/headlines/news/" style="color:#30cf70" target="_blank">Read</a></li>
       <li><strong>Ethereum upgrades bring new DeFi features</strong><br/><a href="https://coinmarketcap.com/headlines/news/" style="color:#30cf70" target="_blank">Read</a></li>
@@ -761,32 +759,60 @@
     `;
   }
 }
-// Call this for every page load and timer refresh!
 fetchCMCNews();
 setInterval(fetchCMCNews, 360000);
 
     // Trending News widget
-    
-    async function fetchTrendingNews(){
-      const newsListElement=document.getElementById('news-list');
-      try{
-        const response=await fetch('https://cryptopanic.com/api/v1/posts/?auth_token=&public=true&kind=news');
-        const data=await response.json();
-        if(data.results&&data.results.length>0){
-          newsListElement.innerHTML='';
-          data.results.slice(0,5).forEach(item=>{
-            const li=document.createElement('li');
-            const link=document.createElement('a');
-            link.href=item.url;link.target="_blank";link.rel="noopener noreferrer";
-            link.textContent=simplifyHindiEnglishText(item.title);
-            li.appendChild(link); newsListElement.appendChild(li);
+     async function fetchTrendingNews() {
+        const newsListElement = document.getElementById('news-list');
+        
+        try {
+          // Fetch from CryptoPanic API (free, no key required for basic use)
+          const response = await fetch('https://cryptopanic.com/api/v1/posts/?auth_token=&public=true&kind=news');
+          const data = await response.json();
+          
+          if (data.results && data.results.length > 0) {
+            newsListElement.innerHTML = '';
+            
+            // Display first 5 news items
+            data.results.slice(0, 5).forEach(item => {
+              const li = document.createElement('li');
+              const link = document.createElement('a');
+              link.href = item.url;
+              link.target = '_blank';
+              link.rel = 'noopener noreferrer';
+              link.textContent = item.title;
+              li.appendChild(link);
+              newsListElement.appendChild(li);
+            });
+          } else {
+            throw new Error('No news data');
+          }
+        } catch (error) {
+          console.error('Error fetching crypto news:', error);
+          // Fallback to static news if API fails
+          const fallbackNews = [
+            { title: "Bitcoin hits $111K milestone - Market rallies", url: "https://coinmarketcap.com/headlines/news/" },
+            { title: "Ethereum upgrades bring new features", url: "https://coinmarketcap.com/headlines/news/" },
+            { title: "Top 5 altcoins showing strong momentum", url: "https://coinmarketcap.com/headlines/news/" },
+            { title: "Crypto regulations evolving globally", url: "https://coinmarketcap.com/headlines/news/" },
+            { title: "DeFi projects gaining mainstream adoption", url: "https://coinmarketcap.com/headlines/news/" }
+          ];
+          
+          newsListElement.innerHTML = '';
+          fallbackNews.forEach(item => {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = item.title;
+            li.appendChild(link);
+            newsListElement.appendChild(li);
           });
-        }else throw new Error('No news');
-      }catch(e){
-        newsListElement.innerHTML='<li>Unable to load news.</li>';
+        }
       }
-    }
-    fetchTrendingNews(); setInterval(fetchTrendingNews,300000);
+   
     // Crypto prices widget
     async function fetchLivePrices(){
       try{
@@ -839,6 +865,7 @@ setInterval(fetchCMCNews, 360000);
   </script>
 </body>
 </html>
+
 
 
 
