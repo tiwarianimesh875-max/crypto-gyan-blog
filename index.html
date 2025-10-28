@@ -236,13 +236,14 @@
 
   <div id="news-section" class="tips-section">
   <div class="card">
-    <h2>🗞️ Latest Crypto News (CoinMarketCap Style)</h2>
+    <h2>🗞️ Latest Crypto News</h2>
     <ul id="cmc-news-list">
       <li>Loading the latest crypto news...</li>
     </ul>
-    <p style="font-size:0.9rem; color:#888; margin-top:10px;">(Auto-updating headlines. Powered by CoinMarketCap / public crypto APIs)</p>
+    <p style="font-size:0.9rem; color:#888;">(Auto-updating headlines, fresh every time you open)</p>
   </div>
 </div>
+
 
 
 
@@ -263,8 +264,7 @@
           <span id="newsletter-result" style="margin-left:10px;color:var(--accent);"></span>
         </form>
         <div class="card">
-          <h2><span class="lang-hi">📰 लेटेस्ट क्रिप्टो न्यूज़</span><span class="lang-en">📰 Latest Crypto News</span></h2>
-          <ul id="latest-news-list"><li>Loading news...</li></ul>
+         
      <div class="container">
     <main class="main-content">
       <div id="home-section" class="tips-section active">
@@ -596,12 +596,7 @@
         <div id="crypto-price-ticker">Loading prices...</div>
       </div>
 
-      <div class="widget">
-        <h2>📰 Trending Crypto News</h2>
-        <ul id="news-list">
-          <li>Loading news...</li>
-        </ul>
-      </div>
+     
 
       <div class="widget gamification">
         <h2>🎮 Gamification</h2>
@@ -760,59 +755,11 @@ async function fetchCMCNews() {
   }
 }
 fetchCMCNews();
-setInterval(fetchCMCNews, 360000);
+setInterval(fetchCMCNews, 360000); // 6 min update
+
 
     // Trending News widget
-     async function fetchTrendingNews() {
-        const newsListElement = document.getElementById('news-list');
-        
-        try {
-          // Fetch from CryptoPanic API (free, no key required for basic use)
-          const response = await fetch('https://cryptopanic.com/api/v1/posts/?auth_token=&public=true&kind=news');
-          const data = await response.json();
-          
-          if (data.results && data.results.length > 0) {
-            newsListElement.innerHTML = '';
-            
-            // Display first 5 news items
-            data.results.slice(0, 5).forEach(item => {
-              const li = document.createElement('li');
-              const link = document.createElement('a');
-              link.href = item.url;
-              link.target = '_blank';
-              link.rel = 'noopener noreferrer';
-              link.textContent = item.title;
-              li.appendChild(link);
-              newsListElement.appendChild(li);
-            });
-          } else {
-            throw new Error('No news data');
-          }
-        } catch (error) {
-          console.error('Error fetching crypto news:', error);
-          // Fallback to static news if API fails
-          const fallbackNews = [
-            { title: "Bitcoin hits $111K milestone - Market rallies", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "Ethereum upgrades bring new features", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "Top 5 altcoins showing strong momentum", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "Crypto regulations evolving globally", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "DeFi projects gaining mainstream adoption", url: "https://coinmarketcap.com/headlines/news/" }
-          ];
-          
-          newsListElement.innerHTML = '';
-          fallbackNews.forEach(item => {
-            const li = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = item.url;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.textContent = item.title;
-            li.appendChild(link);
-            newsListElement.appendChild(li);
-          });
-        }
-      }
-   
+    
     // Crypto prices widget
     async function fetchLivePrices(){
       try{
@@ -865,6 +812,7 @@ setInterval(fetchCMCNews, 360000);
   </script>
 </body>
 </html>
+
 
 
 
