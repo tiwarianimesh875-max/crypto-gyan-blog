@@ -3,268 +3,670 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="google-site-verification" content="eNJMp_uDDthx5K15GiEPg5jAqo3MK5-P2_rZZ0G4S-Y" />
   <title>Crypto Gyan Blog</title>
-  <meta name="description" content="India's #1 crypto blog for latest coin updates, bitcoin news and expert investment tips in Hindi." />
-  <meta name="keywords" content="crypto, bitcoin, solana, cardano, shiba inu, ethereum, news, tips, tokens, investment, hindi" />
-  <meta name="author" content="Animesh Tiwari" />
-  <meta property="og:title" content="Crypto Gyan Blog – Live Tips, Latest News" />
-  <meta property="og:description" content="Crypto ki duniya ke sabse taaza updates, trending coins aur hindi mein expert tips." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/tiwarianimesh875-max/crypto-gyan-blog/main/bolt.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="Crypto Gyan: Latest Crypto News, Tips, Market Analysis, Token Info in Hindi-English. Learn, Invest, and Stay Updated!" />
+  <meta name="keywords" content="Crypto, Bitcoin, Ethereum, Solana, Hindi, News, Tips, Tokens, Market, India, Beginner, Investment, Meme coins" />
+  <meta name="author" content="Crypto Gyan Team" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Crypto Gyan Blog - Crypto News, Trends & Tips" />
+  <meta property="og:description" content="सबसे ताजा crypto news, insights और expert टिप्स! Bitcoin, Ethereum, Trending tokens analysis and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourgithubusername.github.io/cryptogyan/" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/yourgithubusername/cryptogyan/main/ad-product.jpg" />
+  <!-- Google verification -->
+  <meta name="google-site-verification" content="YOUR-GOOGLE-VERIFICATION-CODE" />
+  <!-- FAQ & News Schema -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Crypto kya hai?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Crypto ek digital asset hai jo blockchain par kaam karta hai."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Bitcoin kaise kharidein?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Popular exchange CoinSwitch, WazirX, Binance ya Coinbase se buy kar sakte hain."
-        }
-      }
-    ]
-  }
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Crypto kya hai?","acceptedAnswer":{"@type":"Answer","text":"Crypto ek digital currency hai jo blockchain par kaam karti hai. Decentralized hoti hai aur online trading/investment ke liye use ki ja sakti hai."}},{"@type":"Question","name":"Bitcoin ka price kaise update hota hai?","acceptedAnswer":{"@type":"Answer","text":"Bitcoin ka price market demand/supply ke hisaab se real-time change hota hai. CryptoGyan par live price dekhein."}}]}
   </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"NewsArticle","headline":"Bitcoin hits 111K USD","datePublished":"2025-10-28","image":"https://raw.githubusercontent.com/yourgithubusername/cryptogyan/main/news-btc.jpg","articleBody":"Bitcoin ने 111,000 USD छू लिया. Market में तेजी है.","author":{"@type":"Person","name":"Crypto Gyan Team"}}
+  </script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --main-bg: #161e2e;
-      --accent: #30cf70;
-      --card-bg: #241f3a;
-      --text-light: #f5f6fa;
-      --border-radius: 16px;
+      --main-bg: #161e2e; --accent: #30cf70; --card-bg: #241f3a;
+      --text-light: #f5f6fa; --border-radius: 16px;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box;}
-    body { background: var(--main-bg); color: var(--text-light); font-family: 'Inter', sans-serif; line-height: 1.6;}
+    body.light-theme {
+      --main-bg: #f5f6fa; --card-bg: #fff; --text-light: #222;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--main-bg); color: var(--text-light); font-family: 'Inter',sans-serif; line-height: 1.6; transition: background 0.4s, color 0.3s;}
     .header { background: var(--card-bg); padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--accent); flex-wrap: wrap;}
     .logo { font-weight: 700; font-size: 2rem; color: var(--accent); flex: 1 0 150px;}
     nav.nav { display: flex; gap: 1rem; flex: 2 1 300px; flex-wrap: wrap; justify-content: flex-end;}
     nav.nav a { color: var(--text-light); text-decoration: none; font-weight: 500; padding: 0.3rem 0.7rem; border-radius: 6px; transition: background-color 0.3s; cursor: pointer;}
-    .tips-section { display: none;}
-    .tips-section.active { display: block;}
-    nav.nav a:hover { background: var(--accent); color: #121212;}
-    .container { display: flex; flex-wrap: wrap; gap: 2rem; margin: 2rem; max-width: 1200px; margin-left: auto; margin-right: auto;}
-    main.main-content { flex: 3; min-width: 320px;}
-    .card { background: var(--card-bg); border-radius: var(--border-radius); box-shadow: 0 2px 16px rgba(45, 217, 253, 0.09); padding: 1.5rem 2rem; margin-bottom: 2rem; transition: transform 0.3s, box-shadow 0.3s;}
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 36px rgba(48, 207, 112, 0.2);}
-    h2 { color: var(--accent); margin-top: 0; margin-bottom: 1rem;}
-    .sidebar { flex: 1; min-width: 260px;}
-    .widget { background: var(--card-bg); border-radius: var(--border-radius); padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(48, 207, 112, 0.08);}
-    .footer { background: var(--card-bg); color: var(--text-light); text-align: center; padding: 1.5rem 0; border-top: 2px solid var(--accent); margin-top: 3rem; font-size: 0.9rem;}
-    #crypto-price-ticker { font-size: 1.1rem; font-weight: 600; color: var(--accent); overflow-x: auto; white-space: nowrap; padding: 0.5rem 0;}
-    #trending-news ul, #news-list { list-style: none; padding-left: 0; max-height: 200px; overflow-y: auto;}
-    #trending-news li, #news-list li { margin-bottom: 10px; border-bottom: 1px solid #2d2450; padding-bottom: 6px; font-size: 0.9rem;}
-    #trending-news a, #news-list a { color: #81c784; text-decoration: none;}
-    #trending-news a:hover, #news-list a:hover { text-decoration: underline;}
-    .gamification p, .referral p, .wallet-connect p { margin: 0.6rem 0; font-size: 0.95rem;}
-    .btn { background: var(--accent); border: none; padding: 0.7rem 1.2rem; color: #121212; font-weight: 600; border-radius: 8px; cursor: pointer; margin-top: 8px; transition: background 0.3s;}
-    .btn:hover { background: #2fd87f;}
-    .btn:active { transform: scale(0.98);}
-    .ad-space { background: var(--card-bg); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 2rem; box-shadow: 0 2px 12px rgba(48, 207, 112, 0.05);}
-    .ad-label { font-size: 0.75rem; color: var(--text-light); opacity: 0.6; text-transform: uppercase; margin-bottom: 0.5rem; text-align: center;}
-    .ad-content { min-height: 90px; display: flex; align-items: center; justify-content: center;}
-    .ad-sidebar .ad-content { min-height: 250px;}
-    ::-webkit-scrollbar {width: 8px;}
-    ::-webkit-scrollbar-track {background: #1a1a2e;}
-    ::-webkit-scrollbar-thumb {background: var(--accent);border-radius: 4px;}
-    @media (max-width: 800px) {
-      .container { flex-direction: column; margin: 1rem;}
-      .header { padding: 1rem; gap: 0.5rem;}
-      .logo { font-size: 1.5rem; flex: 1 0 100%; margin-bottom: 0.5rem;}
-      nav.nav { justify-content: center; width: 100%;}
-      nav.nav a { font-size: 0.9rem; padding: 0.4rem 0.6rem;}
-      .sidebar { width: 100%; min-width: 100%;}
-      .widget { width: 100%; box-sizing: border-box; overflow-x: hidden;}
-      .btn { width: 100%; box-sizing: border-box;}
-      .card { width: 100%; box-sizing: border-box; overflow-x: hidden;}
+    nav.nav a:hover { background: var(--accent); color:#121212;}
+    .tips-section { display:none; }
+    .tips-section.active { display:block;}
+    .container { display:flex; flex-wrap:wrap; gap:2rem; margin:2rem; max-width:1200px; margin-left:auto; margin-right:auto;}
+    main.main-content { flex:3; min-width:320px;}
+    .card { background:var(--card-bg); border-radius:var(--border-radius); box-shadow: 0 2px 16px rgba(45,217,253,0.09); padding:1.5rem 2rem; margin-bottom:2rem; transition: transform 0.3s, box-shadow 0.3s;}
+    .card:hover { transform:translateY(-5px); box-shadow:0 8px 36px rgba(48,207,112,0.2);}
+    h2 { color:var(--accent); margin-top:0; margin-bottom:1rem; }
+    .sidebar { flex:1; min-width:260px;}
+    .widget { background:var(--card-bg); border-radius:var(--border-radius); padding:1.5rem; margin-bottom:1.5rem; box-shadow: 0 4px 12px rgba(48,207,112,0.08);}
+    .footer { background:var(--card-bg); color:var(--text-light); text-align:center; padding:1.5rem 0; border-top:2px solid var(--accent); margin-top:3rem; font-size:0.9rem; }
+    #crypto-price-ticker,
+    #portfolio-result { font-size:1.1rem; font-weight:600; color:var(--accent); padding:0.5rem 0;}
+    #trending-news ul, #latest-news-list { list-style:none; padding-left:0; max-height:200px; overflow-y:auto;}
+    #trending-news li, #latest-news-list li { margin-bottom:10px; border-bottom:1px solid #2d2450; padding-bottom:6px; font-size:0.98rem; }
+    #trending-news a, #latest-news-list a { color: #81c784; text-decoration:none;}
+    #trending-news a:hover, #latest-news-list a:hover { text-decoration:underline;}
+    .gamification p, .referral p, .wallet-connect p { margin:0.6rem 0; font-size:0.95rem;}
+    .btn { background:var(--accent); border:none; padding:0.7rem 1.2rem; color:#121212; font-weight:600; border-radius:8px; cursor:pointer; margin-top:8px; transition:background 0.3s;}
+    .btn:hover { background:#2fd87f; }
+    .btn:active { transform:scale(0.98);}
+    .ad-space { background:var(--card-bg); border-radius:var(--border-radius); padding:1rem; margin-bottom:2rem; box-shadow:0 2px 12px rgba(48,207,112,0.05);}
+    .ad-label { font-size:0.75rem; color:var(--text-light); opacity:0.6; text-transform:uppercase; margin-bottom:0.5rem; text-align:center;}
+    .ad-content { min-height:90px; display:flex; align-items:center; justify-content:center;}
+    .ad-sidebar .ad-content { min-height:250px;}
+    ::-webkit-scrollbar { width:8px; }
+    ::-webkit-scrollbar-track { background:#1a1a2e; }
+    ::-webkit-scrollbar-thumb { background:var(--accent); border-radius:4px;}
+    @media (max-width:800px) {
+      .container{flex-direction:column;margin:1rem;} .header{padding:1rem;gap:0.5rem;}
+      .logo{font-size:1.5rem;flex:1 0 100%;margin-bottom:0.5rem;} nav.nav{justify-content:center;width:100%;}
+      nav.nav a{font-size:0.9rem;padding:0.4rem 0.6rem;} .sidebar{width:100%;min-width:100%;} .widget,.card{width:100%;box-sizing:border-box;overflow-x:hidden;}
+      .btn{width:100%; box-sizing:border-box;}
     }
+    .img-ad-block { display:flex; flex-direction:column; align-items:center; justify-content:center; margin:2rem 0; padding:20px; background:var(--card-bg); border-radius:var(--border-radius);}
+    .img-ad-block img { max-width:300px; border-radius:12px; margin-bottom:10px;}
+    .share-links {margin:12px 0;}
+    .share-links a {margin-right:12px;}
+    .newsletter-box {background:var(--card-bg); border-radius:var(--border-radius); padding:1rem 2rem; margin:18px 0;}
+    .newsletter-box label {font-size:1rem;}
+    .newsletter-box input[type='email']{padding:8px;border-radius:6px;border:1px solid #aaa;width:70%;margin-right:6px;}
+    .newsletter-box .btn{margin-top:0;}
+    /* Hindi/English UI switcher styles */
+    .lang-hi { display:inline; }
+    .lang-en { display:none; }
+    body.english .lang-hi { display:none; }
+    body.english .lang-en { display:inline; }
   </style>
 </head>
 <body>
   <header class="header">
-    <div class="logo">💰 Crypto Gyan</div>
+    <div class="logo lang-hi">💰 Crypto Gyan</div>
+    <div class="logo lang-en">💰 Crypto Knowledge</div>
     <nav class="nav">
-      <a href="javascript:void(0);" onclick="showSection('home')">Home</a>
-      <a href="javascript:void(0);" onclick="showSection('tips')">Tips</a>
-      <a href="javascript:void(0);" onclick="showSection('tokens')">Tokens</a>
-      <a href="javascript:void(0);" onclick="showSection('news')">Latest News</a>
-      <a href="#">Contact</a>
+      <a href="#" onclick="showSection('home')"><span class="lang-hi">होम</span><span class="lang-en">Home</span></a>
+      <a href="#" onclick="showSection('tips')"><span class="lang-hi">टिप्स</span><span class="lang-en">Tips</span></a>
+      <a href="#" onclick="showSection('tokens')"><span class="lang-hi">टोकन</span><span class="lang-en">Tokens</span></a>
+      <a href="#"><span class="lang-hi">संपर्क</span><span class="lang-en">Contact</span></a>
     </nav>
+    <!-- Theme/lang switchers -->
+    <button id="theme-toggle" class="btn" style="margin-left:12px;">🌗 Theme</button>
+    <button id="lang-toggle" class="btn" style="margin-left:6px;">🇮🇳 हिन्दी/English</button>
   </header>
   <div class="container">
     <main class="main-content">
       <div id="home-section" class="tips-section active">
-        <!-- Amazon Ad (Bolt) -->
-        <div class="ad-space ad-sidebar" style="max-width:380px; margin: 2rem auto;">
-          <p class="ad-label">Amazon Special Offer</p>
-          <a href="https://amzn.to/4qqgi5A" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-            <img src="https://raw.githubusercontent.com/tiwarianimesh875-max/crypto-gyan-blog/main/bolt.jpg" alt="Bolt Earbuds IPX5" style="width:100%; border-radius:12px; box-shadow:0 2px 8px #30cf7060; margin-bottom:0.8rem;">
-            <div style="text-align:center; color:#161e2e; font-weight:bold; font-size:1.05rem; margin-bottom:0.1rem;">IPX5 Water Resistance Earbuds</div>
-            <div style="text-align:center; color:#30cf70; font-size:0.92rem;">Sweatproof, Splashproof | Best Price on Amazon</div>
-            <button class="btn" style="margin-top:1rem;">Buy Now</button>
-          </a>
+        <!-- New features -->
+        <div class="img-ad-block">
+          <img src="https://raw.githubusercontent.com/yourgithubusername/cryptogyan/main/ad-product.jpg" alt="Smart Crypto Portfolio - Try Now!"/>
+          <div style="font-size:1.18rem;margin-bottom:7px;"><strong>🎁 Smart Crypto Portfolio Tool</strong></div>
+          <a href="https://cryptogyan.io/portfolio-tool" target="_blank" class="btn">Try Free Demo</a>
         </div>
-
-        <!-- Existing content: all cards and blocks exactly as in your old code (BTC, ETH, Tips, Tokens etc) -->
-
-        <!-- ...Yahan pura aapka purana card/block structure copy-paste hai, as above in your sample file... -->
-
-      </div>
-
-      <!-- Tips Section as before -->
-      <div id="tips-section" class="tips-section">
-        <!-- ...Cards/tips copied from your old code... -->
-      </div>
-
-      <!-- Tokens Section as before -->
-      <div id="tokens-section" class="tips-section">
-        <!-- ...Cards/tokens copied from your old code... -->
-      </div>
-
-      <!-- Latest News (Hindi-English) Tab -->
-      <div id="news-section" class="tips-section">
-        <div class="card">
-          <h2>🗞️ Latest Crypto News (Simple Hindi-English Mix)</h2>
-          <ul id="daily-news-list">
-            <li>Loading latest news in simple language...</li>
-          </ul>
-          <p style="font-size:0.9rem; color:#888; margin-top:10px;">(News auto-refreshes. Hindi-English explained headlines!)</p>
+        <div class="share-links">
+          <a href="https://twitter.com/intent/tweet?text=Check%20out%20Crypto%20Gyan%20Blog%20for%20the%20latest%20crypto%20news!%20https://cryptogyan.io/" target="_blank" class="btn">Share on Twitter</a>
+          <a href="https://api.whatsapp.com/send?text=Crypto%20Gyan%20Blog%20–%20Latest%20Crypto%20News%20https://cryptogyan.io/" target="_blank" class="btn">Share on WhatsApp</a>
         </div>
-      </div>
-
-      <!-- Newsletter signup block -->
-      <div class="card">
-        <h2>📰 Get Crypto Tips on Email!</h2>
-        <p>अपने email पर पाएं latest crypto tips और news! Free subscription.</p>
-        <form action="https://formsubmit.co/tiwarianimesh875@gmail.com" method="POST" style="display:flex; gap:8px; margin-top:10px; align-items:center;">
-          <input type="email" name="email" required placeholder="Enter your email" style="flex:1; padding:8px; border-radius:6px; border:none;" />
-          <button type="submit" class="btn" style="padding:8px 16px;">Subscribe</button>
+        <form class="newsletter-box" id="newsletter-form">
+          <label><span class="lang-hi">🔔 ईमेल से Crypto अपडेट्स पाएं:</span><span class="lang-en">🔔 Get Crypto Updates By Email:</span></label><br>
+          <input type="email" id="newsletter-email" required placeholder="आपका ईमेल | Your Email">
+          <button class="btn" type="submit"><span class="lang-hi">सब्सक्राइब करें</span><span class="lang-en">Subscribe</span></button>
+          <span id="newsletter-result" style="margin-left:10px;color:var(--accent);"></span>
         </form>
+        <div class="card">
+          <h2><span class="lang-hi">📰 लेटेस्ट क्रिप्टो न्यूज़</span><span class="lang-en">📰 Latest Crypto News</span></h2>
+          <ul id="latest-news-list"><li>Loading news...</li></ul>
+     <div class="container">
+    <main class="main-content">
+      <div id="home-section" class="tips-section active">
+      <div class="card">
+        <h2>🚀 Welcome to Crypto Gyan</h2>
+        <p>सबसे ताजा crypto news, insights और एक्सपर्ट टिप्स यहाँ पढ़ें! हम आपको क्रिप्टो की दुनिया में सफल बनाने के लिए प्रतिबद्ध हैं।</p>
+        <p><strong>नया कंटेंट जोड़ा गया:</strong> Tokens की पूरी जानकारी नीचे देखें - Types, Popular 2025 tokens, Use cases, Market updates और Safety tips!</p>
       </div>
+      
+      <div class="card">
+        <h2>📈 Bitcoin Market Update</h2>
+        <p>Crypto की दुनिया में रोज नया होता है—जानिए आज क्या खास है। Bitcoin ने हाल ही में $111,000 का लेवल पार किया है और market में नई तेजी देखी जा रही है।</p>
+      </div>
+
+      <div class="card">
+        <h2>💡 Crypto Investment Tips</h2>
+        <p>शुरुआत करने वालों के लिए जरूरी टिप्स: हमेशा research करें, diversify करें, और long-term vision रखें। Market volatility से घबराएं नहीं।</p>
+      </div>
+
+      <!-- Featured Cryptocurrencies Section -->
+      <div class="card">
+        <h2>⭐ Featured Cryptocurrencies</h2>
+        <p>नीचे कुछ popular cryptocurrencies की basic information है जो market में trending हैं:</p>
+      </div>
+
+      <!-- Bitcoin -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(247, 147, 26, 0.1), rgba(48, 207, 112, 0.05));">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="font-size: 3rem;">₿</div>
+          <div>
+            <h2 style="margin: 0;">Bitcoin (BTC)</h2>
+            <p style="margin: 0; opacity: 0.8;">The Original Cryptocurrency</p>
+          </div>
+        </div>
+        <p><strong>Launch:</strong> 2009 | <strong>Creator:</strong> Satoshi Nakamoto</p>
+        <p><strong>Current Price:</strong> ~$111,000 (Oct 2025)</p>
+        <p>Bitcoin दुनिया की पहली cryptocurrency है और "Digital Gold" के रूप में जानी जाती है। सबसे बड़ी market cap और सबसे secure blockchain network।</p>
+        <p><strong>मुख्य फीचर:</strong> Limited supply (21M coins), Store of value, Global acceptance, High security</p>
+      </div>
+
+      <!-- Ethereum -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(98, 126, 234, 0.1), rgba(48, 207, 112, 0.05));">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="font-size: 3rem;">Ξ</div>
+          <div>
+            <h2 style="margin: 0;">Ethereum (ETH)</h2>
+            <p style="margin: 0; opacity: 0.8;">Smart Contract Platform</p>
+          </div>
+        </div>
+        <p><strong>Launch:</strong> 2015 | <strong>Creator:</strong> Vitalik Buterin</p>
+        <p><strong>Current Price:</strong> ~$3,976 (Oct 2025)</p>
+        <p>Ethereum smart contracts का pioneer है। DeFi, NFTs, और dApps के लिए सबसे popular platform। ETH 2.0 upgrade से और भी efficient बन गया है।</p>
+        <p><strong>मुख्य फीचर:</strong> Smart contracts, DeFi ecosystem, NFT marketplace, Proof of Stake</p>
+      </div>
+
+      <!-- Solana -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(220, 31, 255, 0.1), rgba(48, 207, 112, 0.05));">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="font-size: 3rem;">◎</div>
+          <div>
+            <h2 style="margin: 0;">Solana (SOL)</h2>
+            <p style="margin: 0; opacity: 0.8;">High-Speed Blockchain</p>
+          </div>
+        </div>
+        <p><strong>Launch:</strong> 2020 | <strong>Creator:</strong> Anatoly Yakovenko</p>
+        <p><strong>Current Price:</strong> ~$192 (Oct 2025)</p>
+        <p>Solana सबसे fast blockchain है - 65,000+ transactions per second! सबसे low fees और growing ecosystem। DeFi और NFTs में rapidly popular हो रहा है।</p>
+        <p><strong>मुख्य फीचर:</strong> Ultra-fast transactions, Low fees, Growing DeFi ecosystem, NFT marketplace</p>
+      </div>
+
+      <!-- Cardano -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(0, 51, 173, 0.1), rgba(48, 207, 112, 0.05));">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="font-size: 3rem;">₳</div>
+          <div>
+            <h2 style="margin: 0;">Cardano (ADA)</h2>
+            <p style="margin: 0; opacity: 0.8;">Research-Driven Blockchain</p>
+          </div>
+        </div>
+        <p><strong>Launch:</strong> 2017 | <strong>Creator:</strong> Charles Hoskinson</p>
+        <p><strong>Current Price:</strong> ~$0.50-0.60 (Oct 2025)</p>
+        <p>Cardano peer-reviewed research पर based है। Energy efficient, sustainable, और scalable blockchain। Academic approach से development करता है।</p>
+        <p><strong>मुख्य फीचर:</strong> Proof of Stake, Academic research, Sustainability, Smart contracts</p>
+      </div>
+
+      <!-- Meme Coins Section -->
+      <div class="card">
+        <h2>😄 Popular Meme Coins</h2>
+        <p>Meme coins community-driven cryptocurrencies हैं जो viral trends और social media hype से popular होती हैं। High risk, high reward potential!</p>
+      </div>
+
+      <!-- Dogecoin -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(186, 140, 69, 0.1), rgba(48, 207, 112, 0.05));">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="font-size: 3rem;">Ð</div>
+          <div>
+            <h2 style="margin: 0;">Dogecoin (DOGE)</h2>
+            <p style="margin: 0; opacity: 0.8;">The Original Meme Coin</p>
+          </div>
+        </div>
+        <p><strong>Launch:</strong> 2013 | <strong>Mascot:</strong> Shiba Inu Dog</p>
+        <p><strong>Famous For:</strong> Elon Musk tweets, Community support</p>
+        <p>Dogecoin शुरू में joke के रूप में बनाया गया था, लेकिन अब एक massive community है। Elon Musk की support से काफी popular हुआ। Low transaction fees और fast transfers।</p>
+        <p><strong>मुख्य फीचर:</strong> Strong community, Low fees, Celebrity endorsements, Meme culture icon</p>
+      </div>
+
+      <!-- Pepe -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(26, 185, 67, 0.1), rgba(48, 207, 112, 0.05));">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="font-size: 3rem;">🐸</div>
+          <div>
+            <h2 style="margin: 0;">Pepe (PEPE)</h2>
+            <p style="margin: 0; opacity: 0.8;">Meme Culture Favorite</p>
+          </div>
+        </div>
+        <p><strong>Launch:</strong> 2023 | <strong>Mascot:</strong> Pepe the Frog</p>
+        <p><strong>Famous For:</strong> Viral memes, Internet culture</p>
+        <p>PEPE internet meme culture से inspired है। 2023-24 में explosive growth दिखाया। Pure meme coin - कोई utility नहीं, सिर्फ community और hype-driven।</p>
+        <p><strong>Risk Warning:</strong> ⚠️ Highly speculative! सिर्फ वो amount invest करें जो आप lose कर सकते हैं। Research जरूर करें!</p>
+      </div>
+
+      <!-- Shiba Inu -->
+      <div class="card" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.1), rgba(48, 207, 112, 0.05));">
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+          <div style="font-size: 3rem;">🐕</div>
+          <div>
+            <h2 style="margin: 0;">Shiba Inu (SHIB)</h2>
+            <p style="margin: 0; opacity: 0.8;">Dogecoin Killer</p>
+          </div>
+        </div>
+        <p><strong>Launch:</strong> 2020 | <strong>Mascot:</strong> Shiba Inu Dog</p>
+        <p><strong>Famous For:</strong> "Dogecoin Killer" nickname, DeFi ecosystem</p>
+        <p>Shiba Inu खुद को "Dogecoin Killer" कहता है। ShibaSwap DEX और growing ecosystem के साथ। Large community और celebrity attention मिला है।</p>
+        <p><strong>मुख्य फीचर:</strong> ShibaSwap DEX, NFT marketplace, Strong community, Low entry price</p>
+      </div>
+
+      <div class="card">
+        <h2>⚠️ Important Note on Meme Coins</h2>
+        <p><strong>Meme coins बहुत risky होती हैं!</strong> ये coins fundamentals की बजाय hype और social media trends पर चलती हैं।</p>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 0.5rem;">🚨 Extreme volatility - prices बहुत तेजी से up/down हो सकती हैं</li>
+          <li style="margin-bottom: 0.5rem;">🚨 FOMO trap - Viral होने पर peak price पर न खरीदें</li>
+          <li style="margin-bottom: 0.5rem;">🚨 Portfolio का सिर्फ 5-10% ही meme coins में रखें</li>
+          <li style="margin-bottom: 0.5rem;">✅ हमेशा profit booking करें - greed में सब गंवाने से बचें</li>
+          <li style="margin-bottom: 0.5rem;">✅ DYOR (Do Your Own Research) - किसी की बात में आकर invest न करें</li>
+        </ul>
+      </div>
+
+ <div id="tips-section" class="tips-section">
+        <div class="card">
+          <h2>💡 Market-Based Investment Tips (October 2025)</h2>
+          <p>वर्तमान market situation के आधार पर expert suggestions और strategies:</p>
+        </div>
+
+        <div class="card">
+          <h2>🎯 Current Market Analysis</h2>
+          <p><strong>Market Sentiment:</strong> Bitcoin $111K तक पहुंचने के बाद थोड़ी consolidation में है। Altcoins में mixed signals दिख रहे हैं।</p>
+          <p><strong>Key Observation:</strong> October 2025 में बड़ी volatility देखी गई - $126K से $105K तक crash, फिर recovery। ऐसे में caution जरूरी है।</p>
+        </div>
+
+        <div class="card">
+          <h2>✅ Top 5 Investment Tips (October 2025)</h2>
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 1rem;"><strong>1️⃣ Dollar Cost Averaging (DCA) Strategy अपनाएं</strong><br/>
+            एक साथ बड़ी amount invest करने की बजाय, हर हफ्ते/महीने छोटी amounts में invest करें। Market के ups-downs का average निकाल सकते हैं।</li>
+            
+            <li style="margin-bottom: 1rem;"><strong>2️⃣ Top 3 Coins में Focus रखें</strong><br/>
+            BTC, ETH, SOL - ये तीनों proven track record वाले हैं। Portfolio का 60-70% इनमें रखें, बाकी में altcoins explore करें।</li>
+            
+            <li style="margin-bottom: 1rem;"><strong>3️⃣ FOMO से बचें</strong><br/>
+            जब कोई coin suddenly pump हो तो तुरंत न खरीदें। FOMO (Fear of Missing Out) में लिए गए decisions अक्सर loss देते हैं। Research first!</li>
+            
+            <li style="margin-bottom: 1rem;"><strong>4️⃣ Stop-Loss लगाना सीखें</strong><br/>
+            Trading करते हैं तो stop-loss जरूर set करें। Market crash में यह आपको बड़े loss से बचा सकता है। 10-15% stop-loss reasonable है।</li>
+            
+            <li style="margin-bottom: 1rem;"><strong>5️⃣ Staking से Passive Income</strong><br/>
+            ETH, SOL, MATIC जैसे coins को stake करके 5-15% APY कमा सकते हैं। Long-term holders के लिए best strategy!</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>⚠️ October 2025 Risks & Warnings</h2>
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 0.8rem;">🚨 <strong>Regulatory Changes:</strong> Binance founder को माफी मिली - यह regulatory environment में बदलाव के signals हैं। News पर नजर रखें।</li>
+            <li style="margin-bottom: 0.8rem;">🚨 <strong>Market Volatility:</strong> Recent crash ($19 billion market cap lost) दिखाता है कि market अभी भी बहुत volatile है। Risk management करें।</li>
+            <li style="margin-bottom: 0.8rem;">🚨 <strong>Altcoin Caution:</strong> Tron जैसे कुछ altcoins में गिरावट आई है। Small-cap coins में invest करते समय extra research करें।</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>📈 Promising Opportunities (Short-term)</h2>
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 0.8rem;">💎 <strong>ChainOpera AI (COAI):</strong> AI + blockchain space में trending, double-digit gains दिखा रहा है।</li>
+            <li style="margin-bottom: 0.8rem;">💎 <strong>Aptos (APT):</strong> New generation blockchain, strong fundamentals, October में अच्छा perform किया।</li>
+            <li style="margin-bottom: 0.8rem;">💎 <strong>World Liberty Financial (WL):</strong> Political connections के कारण attention में है, लेकिन risk भी high है।</li>
+          </ul>
+          <p><small>⚠️ Disclaimer: ये suggestions educational purpose के लिए हैं। Investment से पहले खुद research करें या financial advisor से consult करें।</small></p>
+        </div>
+
+        <div class="card">
+          <h2>🎓 Learning Resources</h2>
+          <ul style="list-style: none; padding-left: 0;">
+            <li style="margin-bottom: 0.8rem;">📚 CoinGecko/CoinMarketCap पर daily research करें</li>
+            <li style="margin-bottom: 0.8rem;">📚 Twitter/X पर crypto influencers follow करें (verified accounts only)</li>
+            <li style="margin-bottom: 0.8rem;">📚 YouTube पर technical analysis सीखें</li>
+            <li style="margin-bottom: 0.8rem;">📚 Crypto news websites daily पढ़ें</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="tokens-section" class="tips-section">
+
+      <div class="card">
+        <h2>🪙 What are Crypto Tokens?</h2>
+        <p><strong>Token</strong> ek digital asset hai jo blockchain network (Ethereum, Solana, Polygon) par create hota hai। यह एक प्रकार की cryptocurrency है जो किसी specific project या platform के लिए बनाई जाती है।</p>
+        <p><strong>उदाहरण:</strong> जैसे Rupee भारत की currency है, वैसे ही Ethereum network पर ETH token है। हर token का अपना काम होता है।</p>
+        <p><strong>मुख्य उपयोग:</strong> Payments, Staking (rewards कमाना), Voting (project decisions में भाग), Trading (profit कमाना), और NFTs खरीदना।</p>
+      </div>
+
+      <div class="card">
+        <h2>📋 Types of Tokens</h2>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 0.8rem;"><strong>💰 Utility Tokens:</strong> ETH, MATIC - Services aur payments ke liye</li>
+          <li style="margin-bottom: 0.8rem;"><strong>🏛️ Security Tokens:</strong> Ownership aur assets represent karte hain</li>
+          <li style="margin-bottom: 0.8rem;"><strong>🗳️ Governance Tokens:</strong> UNI, AAVE - Project decisions mein voting rights</li>
+          <li style="margin-bottom: 0.8rem;"><strong>🎨 NFTs:</strong> BAYC, CryptoPunks - Unique digital assets</li>
+          <li style="margin-bottom: 0.8rem;"><strong>💵 Stablecoins:</strong> USDT, USDC - Stable value maintain karte hain</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🔥 Popular Tokens in 2025</h2>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 0.8rem;"><strong>Bitcoin (BTC):</strong> सबसे पुराना, largest market cap - Store of value के लिए best</li>
+          <li style="margin-bottom: 0.8rem;"><strong>Ethereum (ETH):</strong> Smart contracts का king, DeFi aur NFT ecosystem का backbone</li>
+          <li style="margin-bottom: 0.8rem;"><strong>Solana (SOL):</strong> सबसे fast, सबसे cheap transactions - DeFi में trending</li>
+          <li style="margin-bottom: 0.8rem;"><strong>Polygon (MATIC):</strong> Ethereum scaling solution, fast aur low fees</li>
+          <li style="margin-bottom: 0.8rem;"><strong>Chainlink (LINK):</strong> Decentralized oracles - Blockchain data bridge</li>
+          <li style="margin-bottom: 0.8rem;"><strong>Aptos (APT):</strong> New generation scalable blockchain, 2025 में high growth</li>
+          <li style="margin-bottom: 0.8rem;"><strong>World Liberty Financial (WL):</strong> 2025 में trending, multiple gains</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>🎯 Token Use Cases</h2>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 0.8rem;"><strong>💳 Payments:</strong> Goods aur services खरीदने के लिए tokens का use</li>
+          <li style="margin-bottom: 0.8rem;"><strong>🏦 Staking:</strong> Tokens hold karke passive income aur network security</li>
+          <li style="margin-bottom: 0.8rem;"><strong>🗳️ Governance:</strong> Project decisions में voting rights</li>
+          <li style="margin-bottom: 0.8rem;"><strong>🎨 NFT Minting:</strong> Unique art aur digital assets buy/sell</li>
+          <li style="margin-bottom: 0.8rem;"><strong>🔄 Trading:</strong> Price fluctuations se profit kamana</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>📊 October 2025 Token Market Update</h2>
+        <p><strong>Bitcoin</strong> ने $111,000 का milestone touch किया। <strong>Ethereum</strong> aur <strong>Solana</strong> में भी बड़ी तेजी देखी गई।</p>
+        <p><strong>Trending Tokens:</strong> Aptos, ChainOpera AI (COAI), Aster - इन्होंने double-digit gains दिखाए।</p>
+        <p><strong>Market News:</strong> Binance founder को माफी मिली, regulatory atmosphere बदल रहा है। Tron में थोड़ी गिरावट, लेकिन stablecoins अभी भी popular।</p>
+      </div>
+
+      <div class="card">
+        <h2>⚠️ Safety Tips for Token Investors</h2>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 0.8rem;">✅ <strong>DYOR (Do Your Own Research):</strong> हमेशा खुद research करें</li>
+          <li style="margin-bottom: 0.8rem;">✅ <strong>Trusted Platforms:</strong> Binance, Coinbase जैसे popular exchanges use करें</li>
+          <li style="margin-bottom: 0.8rem;">✅ <strong>Scam Alert:</strong> Fake airdrops, rug pulls से बचें</li>
+          <li style="margin-bottom: 0.8rem;">✅ <strong>Diversify:</strong> एक ही token में सब पैसे न लगाएं</li>
+          <li style="margin-bottom: 0.8rem;">✅ <strong>Long-term Vision:</strong> Price spikes पर panic selling/buying न करें</li>
+        </ul>
+      </div>
+
+      <div class="ad-space">
+        <p class="ad-label">Advertisement</p>
+        <div class="ad-content">
+          <p style="text-align: center; padding: 60px 20px; background: rgba(48, 207, 112, 0.1); border: 2px dashed var(--accent);">
+            📢 Your Ad Here<br/>
+            <small>728x90 या responsive ad space</small>
+          </p>
+        </div>
+      </div>
+  
+
+  
+
+    
     </main>
     <aside class="sidebar">
+      <div class="widget">
+        <h2>🌟 My Watchlist</h2>
+        <ul id="watchlist"><li>Loading...</li></ul>
+        <button class="btn" id="add-watch-btn">+ Add Coin</button>
+      </div>
+      <div class="widget">
+        <h2>🔎 Recent Searches</h2>
+        <ul id="recent-searches"><li>No searches yet.</li></ul>
+      </div>
+      <div class="widget">
+        <h2><span class="lang-hi">🧮 पोर्टफोलियो कैलकुलेटर</span><span class="lang-en">🧮 Portfolio Calculator</span></h2>
+        <form id="portfolio-form">
+          BTC: <input type="number" step="any" min="0" name="btc" style="width:60px;">
+          ETH: <input type="number" step="any" min="0" name="eth" style="width:60px;">
+          SOL: <input type="number" step="any" min="0" name="sol" style="width:60px;">
+          <button type="submit" class="btn"><span class="lang-hi">कैलकुलेट करें</span><span class="lang-en">Calculate</span></button>
+        </form>
+        <div id="portfolio-result"></div>
+        <aside class="sidebar">
+      <div class="ad-space ad-sidebar">
+        <p class="ad-label">Sponsored</p>
+        <div class="ad-content">
+          <p style="text-align: center; padding: 80px 10px; background: rgba(48, 207, 112, 0.1); border: 2px dashed var(--accent);">
+            📢 Ad Space<br/>
+            <small>300x250</small>
+          </p>
+        </div>
+      </div>
+
       <div class="widget">
         <h2>📊 Live Crypto Prices</h2>
         <div id="crypto-price-ticker">Loading prices...</div>
       </div>
+
       <div class="widget">
         <h2>📰 Trending Crypto News</h2>
-        <ul id="news-list"><li>Loading news...</li></ul>
+        <ul id="news-list">
+          <li>Loading news...</li>
+        </ul>
       </div>
-      <!-- Rest of your widgets as before! -->
-      <!-- Keep same as your old code! -->
+
+      <div class="widget gamification">
+        <h2>🎮 Gamification</h2>
+        <p>🏆 Milestone Badges:</p>
+        <p><strong>✅ 5 posts published</strong></p>
+        <p><strong>✅ First referral</strong></p>
+        <p>💎 Points Earned: <strong>1200</strong></p>
+      </div>
+
+      <div class="widget referral">
+        <h2>🤝 Referral Program</h2>
+        <p>अपने दोस्तों को Crypto Gyan ब्लॉग शेयर करें और points कमाएं!</p>
+        <button id="referral-btn" class="btn">Copy Referral Link</button>
+      </div>
+
+      <div class="widget" style="background: linear-gradient(135deg, rgba(48, 207, 112, 0.1), rgba(48, 207, 112, 0.05)); border: 2px solid var(--accent);">
+        <h2>💎 Start Investment</h2>
+        <p style="font-style: italic; margin-bottom: 1rem; color: #81c784;">"आज का निवेश कल की सफलता की नींव है। छोटी शुरुआत से ही बड़े सपने पूरे होते हैं।"</p>
+        <p style="margin-bottom: 1rem;">CoinSwitch पर crypto investment शुरू करें - भारत का सबसे trusted platform!</p>
+        <a href="https://coinswitch.co/in/refer?tag=kLUBg" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-block; text-decoration: none; text-align: center;">🚀 Start Investment Now</a>
+      </div>
+
+      <div class="widget">
+        <h2>📈 Check All Coin Prices</h2>
+        <p>सभी cryptocurrencies की live prices, market cap, और trading volume देखें:</p>
+        <a href="https://coinmarketcap.com/" target="_blank" rel="noopener noreferrer" class="btn" style="display: inline-block; text-decoration: none; text-align: center;">📊 Visit CoinMarketCap</a>
+      </div>
+
+      <div class="widget wallet-connect">
+        <h2>🔗 Wallet Integration</h2>
+        <p id="wallet-status">Status: Not connected</p>
+        <button id="connect-wallet-btn" class="btn">Connect MetaMask</button>
+      </div>
+
+      <div class="ad-space ad-sidebar">
+        <p class="ad-label">Sponsored</p>
+        <div class="ad-content">
+          <p style="text-align: center; padding: 80px 10px; background: rgba(48, 207, 112, 0.1); border: 2px dashed var(--accent);">
+            📢 Ad Space<br/>
+            <small>300x250</small>
+          </p>
+        </div>
+      </div>
     </aside>
   </div>
-  <footer class="footer">
-    &copy; 2025 Crypto Gyan | Powered by Knowledge &amp; Innovation 🚀
-  </footer>
+  <footer class="footer">&copy; 2025 Crypto Gyan | Powered by Knowledge &amp; Innovation 🚀</footer>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      async function fetchLivePrices() {
-        try {
-          const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano&vs_currencies=inr');
-          const data = await response.json();
-          const priceText = Object.entries(data).map(([coin, values]) => {
-            const coinName = coin.charAt(0).toUpperCase() + coin.slice(1);
-            const price = values.inr.toLocaleString('en-IN');
-            return coinName + ': ₹' + price;
-          }).join(' | ');
-          document.getElementById('crypto-price-ticker').textContent = priceText;
-        } catch (error) {
-          document.getElementById('crypto-price-ticker').textContent = 'Unable to load prices';
-        }
-      }
-
-      async function fetchTrendingNews() {
-        const newsListElement = document.getElementById('news-list');
-        try {
-          const response = await fetch('https://cryptopanic.com/api/v1/posts/?auth_token=&public=true&kind=news');
-          const data = await response.json();
-          if (data.results && data.results.length > 0) {
-            newsListElement.innerHTML = '';
-            data.results.slice(0, 5).forEach(item => {
-              const li = document.createElement('li');
-              const link = document.createElement('a');
-              link.href = item.url;
-              link.target = '_blank';
-              link.rel = 'noopener noreferrer';
-              link.textContent = item.title;
-              li.appendChild(link);
-              newsListElement.appendChild(li);
-            });
-          } else {
-            throw new Error('No news data');
-          }
-        } catch (error) {
-          const fallbackNews = [
-            { title: "Bitcoin hits $111K milestone - Market rallies", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "Ethereum upgrades bring new features", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "Top 5 altcoins showing strong momentum", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "Crypto regulations evolving globally", url: "https://coinmarketcap.com/headlines/news/" },
-            { title: "DeFi projects gaining mainstream adoption", url: "https://coinmarketcap.com/headlines/news/" }
-          ];
-          newsListElement.innerHTML = '';
-          fallbackNews.forEach(item => {
-            const li = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = item.url;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.textContent = item.title;
-            li.appendChild(link);
-            newsListElement.appendChild(li);
+    // Theme Switcher
+    document.getElementById('theme-toggle').onclick = function() {
+      document.body.classList.toggle('light-theme');
+      localStorage.setItem('cg_theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    }
+    if (localStorage.getItem('cg_theme') === 'light') document.body.classList.add('light-theme');
+    // Lang Switcher
+    document.getElementById('lang-toggle').onclick = function() {
+      document.body.classList.toggle('english');
+      localStorage.setItem('cg_lang', document.body.classList.contains("english") ? "en" : "hi");
+    }
+    if(localStorage.getItem('cg_lang')==="en")document.body.classList.add("english");
+    // Portfolio calculator
+    document.getElementById('portfolio-form').onsubmit = async function(e){
+      e.preventDefault();
+      const coins=["bitcoin","ethereum","solana"];
+      const [btc,eth,sol]=[this.btc.value,this.eth.value,this.sol.value].map(Number);
+      const resp=await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${coins.join(',')}&vs_currencies=inr`);
+      const prices=await resp.json();
+      const total=(btc*prices.bitcoin.inr)+(eth*prices.ethereum.inr)+(sol*prices.solana.inr);
+      document.getElementById('portfolio-result').textContent='अंदाजित कुल संपत्ति: ₹'+total.toLocaleString('en-IN');
+    };
+    // Newsletter capture
+    document.getElementById('newsletter-form').onsubmit = function(e) {
+      e.preventDefault();
+      let email = document.getElementById('newsletter-email').value;
+      let arr = JSON.parse(localStorage.getItem("cg_subscribers")||"[]");
+      arr.push(email); localStorage.setItem("cg_subscribers", JSON.stringify(arr));
+      document.getElementById('newsletter-result').textContent = "✅ Subscribed!";
+      document.getElementById('newsletter-email').value = "";
+      setTimeout(()=>document.getElementById('newsletter-result').textContent="",2500);
+    };
+    // Watchlist widget
+    function updateWatchlist() {
+      let symbols = JSON.parse(localStorage.getItem('cg_watchlist')||'["bitcoin","ethereum"]');
+      const ul=document.getElementById('watchlist');
+      ul.innerHTML='';
+      if(!symbols.length){ul.innerHTML='<li>No coins added.</li>';return;}
+      fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${symbols.join(',')}&vs_currencies=inr`)
+        .then(r=>r.json()).then(data=>{
+          symbols.forEach(sym=>{
+            let val = data[sym];
+            ul.innerHTML += `<li>${sym.charAt(0).toUpperCase()+sym.slice(1)}: ₹${val?val.inr.toLocaleString("en-IN"):"?"}</li>`;
           });
-        }
+        });
+    }
+    document.getElementById('add-watch-btn').onclick=function(){
+      let sym=prompt("Enter CoinGecko coin id (e.g. bitcoin, solana)").toLowerCase();
+      if(!sym)return;
+      let arr=JSON.parse(localStorage.getItem('cg_watchlist')||'["bitcoin","ethereum"]');
+      if(arr.includes(sym))return alert('Already in watchlist');
+      arr.push(sym);
+      localStorage.setItem('cg_watchlist',JSON.stringify(arr));
+      updateWatchlist();
+    };
+    updateWatchlist();
+    // Recent searches widget
+    function addRecentSearch(token) {
+      let arr=JSON.parse(localStorage.getItem('cg_recent')||'[]');
+      arr=[token,...arr.filter(t=>t!==token)].slice(0,5);
+      localStorage.setItem('cg_recent',JSON.stringify(arr));
+      updateRecentSearches();
+    }
+    function updateRecentSearches(){
+      let arr=JSON.parse(localStorage.getItem('cg_recent')||'[]');
+      const ul=document.getElementById('recent-searches');
+      ul.innerHTML=arr.length?arr.map(t=>`<li>${t}</li>`).join(''):"<li>No searches yet.</li>";
+    }
+    updateRecentSearches();
+    // Hindi-English simple transformation
+    function simplifyHindiEnglishText(text){
+      text=text.replace(/cryptocurrency/gi,"क्रिप्टो करेंसी");
+      text=text.replace(/blockchain/gi,"ब्लॉकचेन");
+      text=text.replace(/market/gi,"बाजार/Market");
+      text=text.replace(/volatile/gi,"तेज उतार-चढ़ाव/volatility");
+      text=text.replace(/decentralized/gi,"Decentralized (स्वतंत्र)");
+      text=text.replace(/Token/gi,"टोकन");
+      text=text.replace(/price/gi,"मूल्य");
+      text=text.replace(/tips/gi,"टिप्स");
+      return text;
+    }
+    // Latest News widget
+    async function fetchLatestNews(){
+      const newsEl=document.getElementById('latest-news-list');
+      try{
+        let cg=await fetch('https://api.coingecko.com/api/v3/news').then(r=>r.json());
+        let headlines=cg.data||[];
+        newsEl.innerHTML='';
+        headlines.slice(0,6).forEach(item=>{
+          let title=simplifyHindiEnglishText(item.title);
+          let body=simplifyHindiEnglishText(item.description||"");
+          newsEl.innerHTML+=`<li><strong>${title}</strong><br><span style="opacity:0.78;font-size:0.96em">${body}</span></li>`;
+        });
+      }catch(e){
+        newsEl.innerHTML=`<li>Unable to load news.</li>`;
       }
-      async function fetchDailyNews() {
-        const newsList = document.getElementById('daily-news-list');
-        try {
-          const res = await fetch("https://min-api.cryptocompare.com/data/v2/news/?lang=EN");
-          const data = await res.json();
-          if (data.Data && data.Data.length > 0) {
-            newsList.innerHTML = '';
-            data.Data.slice(0, 10).forEach(item => {
-              let simpleTitle = item.title.replace(/Bitcoin|BTC/gi, "Bitcoin (BTC)").replace(/Ethereum/gi,"Ethereum (ETH)").replace(/crypto/gi,"crypto (क्रिप्टो)");
-              let summary = item.body.split('.')[0];
-              let simpleSummary = summary.length > 80 ? summary.slice(0,80)+"..." : summary;
-              const li = document.createElement('li');
-              li.innerHTML = `<strong>${simpleTitle}</strong><br/><span style="color:#81c784;">${simpleSummary}</span><br/><a href="${item.url}" target="_blank" rel="noopener noreferrer" style="color:#30cf70;font-size:0.9rem">Full News</a>`;
-              newsList.appendChild(li);
-            });
-          } else {
-            newsList.innerHTML = "<li>No latest news found.</li>";
-          }
-        } catch (e) {
-          newsList.innerHTML = "<li>Error loading news. Please refresh.</li>";
-        }
+    }
+    fetchLatestNews(); setInterval(fetchLatestNews,300000);
+    // Trending News widget
+    async function fetchTrendingNews(){
+      const newsListElement=document.getElementById('news-list');
+      try{
+        const response=await fetch('https://cryptopanic.com/api/v1/posts/?auth_token=&public=true&kind=news');
+        const data=await response.json();
+        if(data.results&&data.results.length>0){
+          newsListElement.innerHTML='';
+          data.results.slice(0,5).forEach(item=>{
+            const li=document.createElement('li');
+            const link=document.createElement('a');
+            link.href=item.url;link.target="_blank";link.rel="noopener noreferrer";
+            link.textContent=simplifyHindiEnglishText(item.title);
+            li.appendChild(link); newsListElement.appendChild(li);
+          });
+        }else throw new Error('No news');
+      }catch(e){
+        newsListElement.innerHTML='<li>Unable to load news.</li>';
       }
-
-      fetchLivePrices();
-      fetchTrendingNews();
-      fetchDailyNews();
-      setInterval(fetchLivePrices, 300000);
-      setInterval(fetchTrendingNews, 300000);
-      setInterval(fetchDailyNews, 300000);
-
-      window.showSection = function(section) {
-        document.querySelectorAll('.tips-section').forEach(el => el.classList.remove('active'));
-        if (section === 'home') document.getElementById('home-section').classList.add('active');
-        else if (section === 'tips') document.getElementById('tips-section').classList.add('active');
-        else if (section === 'tokens') document.getElementById('tokens-section').classList.add('active');
-        else if (section === 'news') document.getElementById('news-section').classList.add('active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
+    }
+    fetchTrendingNews(); setInterval(fetchTrendingNews,300000);
+    // Crypto prices widget
+    async function fetchLivePrices(){
+      try{
+        const response=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano&vs_currencies=inr');
+        const data=await response.json();
+        const priceText=Object.entries(data).map(([coin,values]) => {
+          const coinName=coin.charAt(0).toUpperCase()+coin.slice(1);
+          const price=values.inr.toLocaleString('en-IN');
+          return coinName + ': ₹' + price;
+        }).join(' | ');
+        document.getElementById('crypto-price-ticker').textContent=priceText;
+      }catch(e){document.getElementById('crypto-price-ticker').textContent='Unable to load prices';}
+    }
+    fetchLivePrices(); setInterval(fetchLivePrices,300000);
+    // Referral button logic
+    document.getElementById('referral-btn').onclick=function(){
+      const referralLink=window.location.href+'?ref=yourname';
+      navigator.clipboard.writeText(referralLink).then(()=>{
+        alert('✅ Referral link copied! Share करें और points कमाएं।');
+      }).catch(err=>{
+        alert('कॉपि करने में समस्या: '+referralLink);
+      });
+    };
+    // MetaMask connect
+    document.getElementById('connect-wallet-btn').addEventListener('click',async function(){
+      const statusElement=document.getElementById('wallet-status');
+      if(typeof window.ethereum!=='undefined'){
+        try{
+          const accounts=await window.ethereum.request({method:'eth_requestAccounts'});
+          const account=accounts[0];
+          const shortAddress=account.slice(0,6)+'...'+account.slice(-4);
+          statusElement.textContent='✅ Connected: '+shortAddress; statusElement.style.color='#30cf70';
+        }catch(e){
+          statusElement.textContent='❌ Connection rejected'; statusElement.style.color='#ff5555';
+        }
+      }else{
+        alert('⚠️ MetaMask not detected! कृपया MetaMask extension install करें।');
+        statusElement.textContent='⚠️ MetaMask not found';
+      }
     });
+    // Section navigation
+    window.showSection=function(section){
+      document.querySelectorAll('.tips-section').forEach(el=>el.classList.remove('active'));
+      if(section==='home')document.getElementById('home-section').classList.add('active');
+      else if(section==='tips')document.getElementById('tips-section').classList.add('active');
+      else if(section==='tokens')document.getElementById('tokens-section').classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+      return false;
+    }
   </script>
 </body>
 </html>
