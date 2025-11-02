@@ -86,9 +86,62 @@
     .lang-en { display:none; }
     body.english .lang-hi { display:none; }
     body.english .lang-en { display:inline; }
+
+.glossary-btn {
+  margin:8px 0;
+  background:#30cf70;
+  color:#fff;
+  border: none;
+  font-weight: bold;
+}
+#glossary-modal {
+  animation: fadeInGloss 0.3s;
+}
+@keyframes fadeInGloss {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+.faq-card {
+  background: linear-gradient(135deg,#273144 0%,#1a2337 100%);
+  border: 2px solid #30cf70;
+  color: #f0f8fa;
+}
+body.light-theme .faq-card {
+  background: linear-gradient(135deg,#eaffff,#fff8ee);
+  border: 2px solid #30cf70;
+  color: #232333;
+}
+.faq-card ul li {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #2d2d51;
+  padding-bottom: 5px;
+}
+body.light-theme .faq-card ul li {
+  border-bottom: 1px solid #bee0dd;
+}
+.faq-card h2, .faq-card h3 {
+  color: #30cf70;
+  margin-bottom: 6px;
+}
+
+.path-card {
+  background: linear-gradient(135deg, #23293b 0%, #202235 92%);
+  border: 2px solid #30cf70;
+}
+body.light-theme .path-card {
+  background: linear-gradient(135deg, #ffebf9 5%, #e6f4ff 100%);
+  border: 2px solid #30cf70;
+}
+
   </style>
 </head>
 <body>
+
+  <div id="notification-bar" style="background:#30cf70;color:#232b39;text-align:center;padding:8px 0;position:relative;z-index:100;font-weight:bold;font-size:1.08rem;transition:top 0.3s;">
+  🚨 Trending: Bitcoin all time high! <span style="font-weight:normal;">Don't miss latest updates</span>
+  <button onclick="document.getElementById('notification-bar').style.display='none'" style="background:none;border:none;color:#232b39;font-size:1.3rem;float:right;margin-right:16px;cursor:pointer;">×</button>
+</div>
+
   <header class="header">
     <div class="logo lang-hi">💰 Crypto Gyan</div>
     <div class="logo lang-en">💰 Crypto Knowledge</div>
@@ -119,9 +172,57 @@
           <p><strong>Market Sentiment:</strong> Bitcoin $111K तक पहुंचने के बाद थोड़ी consolidation में है। Altcoins में mixed signals दिख रहे हैं।</p>
           <p><strong>Key Observation:</strong> October 2025 में बड़ी volatility देखी गई - $126K से $105K तक crash, फिर recovery। ऐसे में caution जरूरी है।</p>
         </div>
+<button class="btn glossary-btn" onclick="document.getElementById('glossary-modal').style.display='block'">
+  📚 Crypto Glossary
+</button>
+
+<div id="glossary-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(30, 50, 60,0.84);z-index:200;padding:40px 0;">
+  <div style="background:#fff;max-width:350px;margin:40px auto;padding:22px 26px;border-radius:14px;box-shadow:0 6px 36px #222;">
+    <h3 style="color:#30cf70;margin-top:0;">Crypto Glossary</h3>
+    <ul style="list-style:none;padding-left:0;font-size:1.05rem;color:#222;">
+      <li><strong>Blockchain:</strong> Data blocks ka chain, all transactions store karta hai.</li>
+      <li><strong>Wallet:</strong> Crypto store karne ki digital/physical id.</li>
+      <li><strong>Altcoin:</strong> Bitcoin ke alawa koi bhi crypto coin.</li>
+      <li><strong>DEX:</strong> Decentralized Exchange, bina middleman ke trade hota hai.</li>
+      <li><strong>Staking:</strong> Coins lock karke rewards kamaana. </li>
+      <li><strong>FOMO:</strong> Fear Of Missing Out, jaldi buy kar dena!</li>
+      <li><strong>ATH:</strong> All Time High price.</li>
+      <!-- Aap apne glossary yahan continue kar sakte ho -->
+    </ul>
+    <button onclick="document.getElementById('glossary-modal').style.display='none'" class="btn" style="margin-top:12px;">Close</button>
+  </div>
+</div>
+
+<div class="card guide-card">
+  <h2>🔰 Crypto First-Time Guide</h2>
+  <ol>
+    <li>App (<strong>CoinSwitch</strong> etc.) install karo, account create karo & KYC verify karo.</li>
+    <li>Bank se deposit low amount ₹500+ karo.</li>
+    <li>Coin page pe research karo (trending coins, whitepaper aur volume check karo).</li>
+    <li>First coin (BTC/ETH/SOL) buy karo, wallet address note karo.</li>
+    <li>Portfolio screenshot lo. Withdraw test karo (chhota amount).</li>
+    <li>Telegram, YT news follow karo—par hamesha khud bhi research karo.</li>
+  </ol>
+  <div style="margin-top:12px;">
+    <a href="https://coinswitch.co/in/refer?tag=kLUBg" target="_blank" class="btn" style="text-decoration:none;display:inline-block;">
+      🚀 Try CoinSwitch (Referral Offer)
+    </a>
+  </div>
+</div>
+
+
+<div class="card path-card">
+  <h2>🚦 Beginner → Advanced Crypto Path</h2>
+  <ul style="list-style:none;margin:0;padding-left:0;">
+    <li style="margin-bottom:8px;"><strong>🧑‍💻 Beginner:</strong> Research + genuine exchange setup + basic buy/sell</li>
+    <li style="margin-bottom:8px;"><strong>📈 Intermediate:</strong> Diversification, SIP, stop-loss, main coin holding, meme coin allocation</li>
+    <li style="margin-bottom:8px;"><strong>🕵️ Advanced:</strong> Staking (ETH/SOL), DeFi, token swaps, NFT, CEX+DEX wallet use, security checks</li>
+  </ul>
+</div>
+
 
         <div class="card">
-          <h2>✅ Top 5 Investment Tips (October 2025)</h2>
+          <h2>✅ Top 5 Investment Tips (November 2025)</h2>
           <ul style="list-style: none; padding-left: 0;">
             <li style="margin-bottom: 1rem;"><strong>1️⃣ Dollar Cost Averaging (DCA) Strategy अपनाएं</strong><br/>
             एक साथ बड़ी amount invest करने की बजाय, हर हफ्ते/महीने छोटी amounts में invest करें। Market के ups-downs का average निकाल सकते हैं।</li>
@@ -141,13 +242,24 @@
         </div>
 
         <div class="card">
-          <h2>⚠️ October 2025 Risks & Warnings</h2>
+          <h2>⚠️ November 2025 Risks & Warnings</h2>
           <ul style="list-style: none; padding-left: 0;">
             <li style="margin-bottom: 0.8rem;">🚨 <strong>Regulatory Changes:</strong> Binance founder को माफी मिली - यह regulatory environment में बदलाव के signals हैं। News पर नजर रखें।</li>
             <li style="margin-bottom: 0.8rem;">🚨 <strong>Market Volatility:</strong> Recent crash ($19 billion market cap lost) दिखाता है कि market अभी भी बहुत volatile है। Risk management करें।</li>
             <li style="margin-bottom: 0.8rem;">🚨 <strong>Altcoin Caution:</strong> Tron जैसे कुछ altcoins में गिरावट आई है। Small-cap coins में invest करते समय extra research करें।</li>
           </ul>
         </div>
+<div class="ad-space ad-sidebar" style="margin-bottom:16px;">
+  <p class="ad-label">Amazon Festive Offer</p>
+  <div class="ad-content">
+    <a href="https://amzn.to/48Zfn68" target="_blank" rel="noopener">
+      <img src="https://github.com/tiwarianimesh875-max/crypto-gyan-blog/blob/main/kurtas.jpg" alt="Premium Stylish Cotton Kurta Set" style="max-width:220px;border-radius:12px;margin-bottom:10px;">
+      <div style="text-align:center;font-weight:bold;font-size:1.05rem;color:#2f2f55;margin-bottom:6px;">Premium Cotton Kurta Combo</div>
+      <div style="text-align:center;color:#30cf70;font-size:0.98rem;margin-bottom:3px;">Festive Season Special Price!</div>
+      <button class="btn" style="display:block;margin:0 auto 6px auto;">Shop Now</button>
+    </a>
+  </div>
+</div>
 
         <div class="card">
           <h2>📈 Promising Opportunities (Short-term)</h2>
@@ -158,6 +270,23 @@
           </ul>
           <p><small>⚠️ Disclaimer: ये suggestions educational purpose के लिए हैं। Investment से पहले खुद research करें या financial advisor से consult करें।</small></p>
         </div>
+
+<div class="card faq-card">
+  <h2>❓ Crypto FAQs + Audience Q&A</h2>
+  <ul id="basic-faqs" style="list-style:none;padding-left:0;margin-bottom:12px;">
+    <li><strong>Crypto kya hai?</strong> <span style="color:#30cf70;">Ek digital currency hai... etc</span></li>
+    <!-- More items -->
+  </ul>
+  <div style="margin:12px 0;">
+    <h3>🗨️ Ask a new question or answer below!</h3>
+    <form id="faq-ask-form" style="margin-bottom:10px;display:flex;gap:8px;">
+      <input type="text" id="faq-question-input" maxlength="100" required placeholder="Apna question/answer likho..." style="flex:1;padding:8px;border-radius:6px;"/>
+      <button class="btn" type="submit">Send</button>
+    </form>
+    <ul id="faq-qa-list" style="list-style:none;padding-left:0;margin:0;"></ul>
+  </div>
+</div>
+
 
         <div class="card">
           <h2>🎓 Learning Resources</h2>
@@ -545,6 +674,12 @@
           <li style="margin-bottom: 0.8rem;">✅ <strong>Long-term Vision:</strong> Price spikes पर panic selling/buying न करें</li>
         </ul>
       </div>
+<div id="inv-popup" style="display:none;position:fixed;bottom:24px;right:18px;z-index:9999;background:#232b39;border:2px solid #30cf70;padding:18px 24px;border-radius:14px;box-shadow:0 6px 30px #222;">
+  <h3 style="color:#30cf70;font-weight:bold;margin-top:0;">💸 Invest Now & Grab Welcome Bonus</h3>
+  <p style="color:#f0f8fa;font-size:1.04rem;">Join CoinSwitch—fastest crypto app in India &amp; get rewards for first investment!</p>
+  <a href="https://coinswitch.co/in/refer?tag=kLUBg" target="_blank" class="btn" style="display:inline-block;margin-bottom:6px;">🚀 Invest Now</a>
+  <button onclick="document.getElementById('inv-popup').style.display='none'" style="background:none;border:none;color:#30cf70;font-size:1.3rem;position:absolute;top:8px;right:12px;cursor:pointer;">×</button>
+</div>
 
       <div class="ad-space">
         <p class="ad-label">Advertisement</p>
@@ -820,9 +955,25 @@
     window.scrollTo({top:0,behavior:'smooth'});
     return false;
   }
+
+
+  
+  setTimeout(function(){
+  document.getElementById('inv-popup').style.display='block';
+},5000);
+
 </script>
+<div id="inv-popup" style="display:none;position:fixed;bottom:24px;right:18px;z-index:9999;background:#232b39;border:2px solid #30cf70;padding:18px 24px;border-radius:14px;box-shadow:0 6px 30px #222;">
+  <h3 style="color:#30cf70;font-weight:bold;margin-top:0;">💸 Invest Now & Grab Welcome Bonus</h3>
+  <p style="color:#f0f8fa;font-size:1.04rem;">Join CoinSwitch—fastest crypto app in India &amp; get rewards for first investment!</p>
+  <a href="https://coinswitch.co/in/refer?tag=kLUBg" target="_blank" class="btn" style="display:inline-block;margin-bottom:6px;">🚀 Invest Now</a>
+  <button onclick="document.getElementById('inv-popup').style.display='none'" style="background:none;border:none;color:#30cf70;font-size:1.3rem;position:absolute;top:8px;right:12px;cursor:pointer;">×</button>
+</div>
+
+
 </body>
 </html>
+
 
 
 
